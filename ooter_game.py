@@ -74,8 +74,13 @@ class Bullet(GameSprite):
         self.rect.y += self.speed
         if self.rect.y < 0:
             self.kill()
+class Ball(GameSprite):            
+    def update(self):
+        self.rect.y += self.speed
+        if self.rect.y > win_height:
+            self.rect.x = randint(80,win_width -80)
+            self.rect.y = 0 
             
-
 ship = Player(image_hero, 5, win_height -100, 80, 100, 10)
 
 monsters = sprite.Group()
